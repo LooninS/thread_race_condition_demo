@@ -18,8 +18,14 @@ void *writer_function(void *arg) {
 }
 
 int main() {
-  pthread_t writer_thread;
-  pthread_create(&writer_thread, NULL, writer_function, NULL);
+  pthread_t writer_thread_1, writer_thread_2, writer_thread_3, writer_thread_4;
+
+  pthread_create(&writer_thread_1, NULL, writer_function, NULL);
+  pthread_create(&writer_thread_2, NULL, writer_function, NULL);
+  pthread_create(&writer_thread_3, NULL, writer_function, NULL);
+  pthread_create(&writer_thread_4, NULL, writer_function, NULL);
+
+
   FILE *fp = fopen("shared_string.txt", "a");
   for (long k = 0; k < 250000000; k++) {
     fprintf(fp, "%s\n", shared_string);
