@@ -1,3 +1,8 @@
+# Why lorem ipsum errors are generated 
+# pthread_create() starts the new thread, but POSIX does not guarantee the new thread runs immediately, the caller may continue first. With a fast logging 
+# loop, that means the file can fill with the initial buffer contents before the worker updates shared_string even once
+
+
 ERROR 1: lorem ipsum
 ERROR 142741538: Algorithms are the backbone of eg another human what one wants the computer to do.
 ERROR 150000001: lorem ipsum
