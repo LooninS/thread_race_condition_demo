@@ -6,6 +6,7 @@
 
 char shared_string[STRING_SIZE] = "lorem ipsum";
 
+// Keep updating the shared_string variable
 void *writer_function(void *arg) {
   int i = 0;
   while (1) {
@@ -19,7 +20,7 @@ void *writer_function(void *arg) {
 
 int main() {
   pthread_t writer_thread_1, writer_thread_2, writer_thread_3, writer_thread_4;
-
+  // create threads
   pthread_create(&writer_thread_1, NULL, writer_function, NULL);
   pthread_create(&writer_thread_2, NULL, writer_function, NULL);
   pthread_create(&writer_thread_3, NULL, writer_function, NULL);
@@ -28,11 +29,13 @@ int main() {
 
   FILE *fp = fopen("shared_string.txt", "a");
   for (long k = 0; k < 250000000; k++) {
+    // print shared_string to shared_string.txt
     fprintf(fp, "%s\n", shared_string);
   }
 
   fclose(fp);
 
+  // wait for all threads to finish
   pthread_join(writer_thread_1, NULL);
   pthread_join(writer_thread_2, NULL);
   pthread_join(writer_thread_3, NULL);
