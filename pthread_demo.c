@@ -30,6 +30,13 @@ int main() {
   for (long k = 0; k < 250000000; k++) {
     fprintf(fp, "%s\n", shared_string);
   }
+
   fclose(fp);
+
+  pthread_join(writer_thread_1, NULL);
+  pthread_join(writer_thread_2, NULL);
+  pthread_join(writer_thread_3, NULL);
+  pthread_join(writer_thread_4, NULL);
+
   return 0;
 }
