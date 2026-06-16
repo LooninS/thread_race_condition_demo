@@ -1,3 +1,4 @@
+// List of sentences written to shared_strings.txt
 #include "shared.h"
 const char *sentences[NUM_SENTENCES] = {
     "The quick brown fox jumps over the lazy dog.",
